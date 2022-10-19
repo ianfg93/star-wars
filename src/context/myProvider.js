@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import MyContext from './myContext';
 
 function MyProvider({ children }) {
   const [data, setData] = useState([]);
-  // const [name, setName] = useState('');
+  const [name, setName] = useState('');
 
-  // const handleName = ({ target }) => {
-  //   setName(target.value);
-  // };
+  const handleName = ({ target }) => {
+    setName(target.value);
+  };
 
   useEffect(() => {
     const reqApi = async () => {
@@ -19,14 +19,14 @@ function MyProvider({ children }) {
     reqApi();
   }, []);
 
-  // const contexto = React.useMemo(() => ({
-  //   data,
-  //   name,
-  //   handleName,
-  // }), [data, name]);
+  const contexto = useMemo(() => ({
+    data,
+    name,
+    handleName,
+  }), [data, name]);
 
   return (
-    <MyContext.Provider value={ data }>
+    <MyContext.Provider value={ contexto }>
       { children }
     </MyContext.Provider>
   );
