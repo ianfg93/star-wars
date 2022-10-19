@@ -26,6 +26,7 @@ function Table() {
       <tbody>
         {
           data?.filter((el) => el.name.toUpperCase().includes(name.toUpperCase()))
+            .filter((element) => element.name.toUpperCase().includes(name.toUpperCase()))
             .map((e) => (
               <tr key={ e.name }>
                 <td>{e.name}</td>
