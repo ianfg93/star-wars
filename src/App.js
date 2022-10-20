@@ -1,6 +1,6 @@
 import React from 'react';
-import './App.css';
 import MyProvider from './context/myProvider';
+import './App.css';
 import Table from './component/Table';
 import Forms from './component/Forms';
 

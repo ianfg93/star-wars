@@ -28,12 +28,19 @@ function MyProvider({ children }) {
   const filterSelect = useCallback(() => {
     const newFilter = data.filter((e) => {
       switch (operador) {
-      case 'maior que': return Number(e[coluna]) > Number(valor);
-      case 'menor que': return Number(e[coluna]) < Number(valor);
-      default: return Number(e[coluna]) === Number(valor);
+      case 'maior que':
+        return Number(e[coluna]) > Number(valor);
+      case 'menor que':
+        return Number(e[coluna]) < Number(valor);
+      case 'igual a':
+        return Number(e[coluna]) === Number(valor);
+      default:
+        return newFilter;
       }
     });
     setData(newFilter);
+    console.log(newFilter);
+    return newFilter;
   }, [data, operador, coluna, valor]);
 
   useEffect(() => {
