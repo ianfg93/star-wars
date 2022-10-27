@@ -3,7 +3,7 @@ import MyContext from '../context/myContext';
 
 function Forms() {
   const { name, handleName, operador, coluna, valor, handleColuna, handleOperador,
-    handleValor, filterSelect } = useContext(MyContext);
+    handleValor, filterSelect, reptFilter } = useContext(MyContext);
 
   return (
     <form>
@@ -26,11 +26,13 @@ function Forms() {
           value={ coluna }
           onChange={ handleColuna }
         >
-          <option value="population">population</option>
-          <option value="orbital_period">orbital_period</option>
-          <option value="diameter">diameter</option>
-          <option value="rotation_period">rotation_period</option>
-          <option value="surface_water">surface_water</option>
+          {
+            reptFilter.map((e, index) => (
+              <option key={ index } value={ e }>
+                { e }
+              </option>
+            ))
+          }
         </select>
       </label>
       <label htmlFor="comparison-filter">
