@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import MyContext from './myContext';
 
-const colunaArrey = ['population',
+const colunaArray = ['population',
   'orbital_period',
   'diameter',
   'rotation_period',
@@ -12,9 +12,9 @@ function MyProvider({ children }) {
   const [data, setData] = useState([]);
   const [name, setName] = useState('');
   const [operador, setOperador] = useState('maior que');
-  const [coluna, setColuna] = useState(colunaArrey[0]);
+  const [coluna, setColuna] = useState(colunaArray[0]);
   const [valor, setValor] = useState(0);
-  const [reptFilter, setReptFilter] = useState(colunaArrey);
+  const [reptFilter, setReptFilter] = useState(colunaArray);
 
   const handleName = ({ target }) => {
     setName(target.value);
